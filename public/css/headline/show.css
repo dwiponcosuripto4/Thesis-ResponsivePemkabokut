@@ -1,0 +1,259 @@
+/* Fix untuk mencegah konflik dengan navbar */
+body {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Pastikan navbar tidak memiliki garis putih yang mengganggu */
+.navbar {
+    border: none !important;
+    margin-bottom: 0 !important;
+    border-bottom: 4px solid #cfec4a !important;
+}
+
+/* Menghilangkan border atau outline yang tidak diinginkan */
+.navbar-nav .nav-item,
+.navbar-nav .nav-link {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Override navbar-nav positioning untuk mencegah item bergeser */
+.navbar-collapse .navbar-nav {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    align-items: center !important;
+}
+
+.navbar-nav .nav-item {
+    position: relative;
+    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+}
+
+.navbar-nav .nav-item:first-child {
+    margin-left: 0;
+}
+
+.navbar-nav .nav-item .nav-link {
+    vertical-align: middle;
+    line-height: 1.5;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    display: flex;
+    align-items: center;
+}
+
+/* Menghilangkan garis putih di bawah nav items */
+.navbar-nav .nav-item::after,
+.navbar-nav .nav-item::before {
+    display: none !important;
+}
+
+/* Pastikan semua nav item sejajar */
+.navbar-nav {
+    align-items: center;
+}
+
+.article-section {
+    padding: 2rem 0;
+    background-color: #f8f9fa;
+    position: relative;
+    z-index: 1;
+}
+
+.section-header {
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.article-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+}
+
+.article-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.article-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.article-content {
+    padding: 1rem;
+}
+
+.article-category {
+    background: #28a745;
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 2;
+}
+
+.article-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.article-meta {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.75rem;
+}
+
+.article-meta i {
+    margin-right: 0.25rem;
+}
+
+.article-excerpt {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.category-sidebar {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.category-item:hover {
+    background-color: #f8f9fa;
+    color: inherit;
+    text-decoration: none;
+}
+
+.category-item:last-child {
+    border-bottom: none;
+}
+
+.category-name {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.category-count {
+    background: #007bff;
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    min-width: 24px;
+    text-align: center;
+}
+
+.category-item.active {
+    background-color: #e3f2fd;
+    border-left: 3px solid #007bff;
+}
+
+.category-item.active .category-name {
+    color: #007bff;
+    font-weight: 600;
+}
+
+.load-more-btn {
+    background: #007bff;
+    border: none;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+.load-more-btn:hover {
+    background: #0056b3;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    .article-card {
+        display: block;
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .article-section {
+        margin-top: 80px !important;
+    }
+
+    .article-image {
+        height: 180px;
+    }
+
+    .article-title {
+        font-size: 0.95rem;
+        -webkit-line-clamp: 2;
+        line-height: 1.5em;
+        padding-bottom: 3px;
+    }
+
+    .article-meta {
+        font-size: 0.75rem;
+    }
+
+    .article-excerpt {
+        font-size: 0.85rem;
+        -webkit-line-clamp: 2;
+    }
+
+    .category-sidebar {
+        position: relative;
+        top: 0;
+        margin-top: 2rem;
+    }
+}

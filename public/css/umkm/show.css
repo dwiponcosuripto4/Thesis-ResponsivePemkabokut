@@ -1,0 +1,89 @@
+body {
+    font-family: "Segoe UI", "Roboto", Arial, sans-serif;
+    background: #f6f8fa;
+}
+
+.umkm-header {
+    background: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);
+    color: #fff;
+    border-radius: 16px 16px 0 0;
+    padding: 32px 24px 24px 24px;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(78, 84, 200, 0.08);
+}
+
+.umkm-header .icon {
+    font-size: 2.5rem;
+    margin-right: 12px;
+}
+
+.umkm-card {
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+    border: none;
+    overflow: hidden;
+}
+
+.umkm-badge {
+    font-size: 1rem;
+    padding: 6px 18px;
+    border-radius: 12px;
+}
+
+.umkm-section-title {
+    font-weight: 600;
+    color: #4e54c8;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 991px) {
+    .umkm-section-title {
+        margin-bottom: 20px;
+    }
+}
+
+.foto-umkm-card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 6px 16px rgba(78, 84, 200, 0.13);
+}
+
+.foto-umkm-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    object-fit: unset;
+}
+
+.map-container {
+    position: relative;
+}
+
+.map-container #map {
+    transition: box-shadow 0.3s ease;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.map-container #map:hover {
+    box-shadow: 0 4px 12px rgba(78, 84, 200, 0.15);
+}
+
+.leaflet-container {
+    font-family: inherit;
+}
+
+.btn-custom {
+    background: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.btn-custom:hover {
+    background: linear-gradient(90deg, #8f94fb 0%, #4e54c8 100%);
+    color: #fff;
+}

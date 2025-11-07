@@ -1,0 +1,456 @@
+.post-content {
+    width: 100%;
+    border-radius: 10px;
+    margin-left: 0;
+    overflow: hidden;
+}
+
+.related-news {
+    width: 100%;
+    margin-left: 0px;
+}
+
+/* Desktop layout - fixed width */
+@media (min-width: 992px) {
+    .post-section {
+        max-width: 1020px;
+        margin-left: 25px;
+    }
+
+    .related-news-section {
+        max-width: 405px;
+    }
+
+    /* Ensure proper spacing for images in description on desktop */
+    .description img {
+        margin-bottom: 25px !important;
+        margin-top: 20px !important;
+    }
+
+    .description figure {
+        margin-bottom: 25px !important;
+        margin-top: 20px !important;
+    }
+}
+
+/* Tablet and smaller desktop - responsive */
+@media (min-width: 769px) and (max-width: 991px) {
+    .post-section {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 15px !important;
+    }
+
+    .related-news-section {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 15px !important;
+    }
+
+    /* Ensure proper spacing for images in description on tablet */
+    .description img {
+        margin-bottom: 25px !important;
+        margin-top: 20px !important;
+    }
+
+    .description figure {
+        margin-bottom: 25px !important;
+        margin-top: 20px !important;
+    }
+}
+
+.related-news img {
+    width: 130px;
+    /* Set width to 130px */
+    height: 80px;
+    /* Set height to 80px */
+    object-fit: cover;
+    /* Ensure the image fits within the 130x80 container */
+    object-position: center;
+    border-radius: 5px;
+    background-color: #d1d3e2;
+    min-width: 130px;
+    /* Force the minimum width to be 130px */
+}
+
+.thumbnail-blur {
+    filter: blur(0.2px);
+    /* Sesuaikan nilai blur sesuai kebutuhan */
+    transition: filter 0.3s ease-in-out;
+}
+
+.thumbnail-blur:hover {
+    filter: none;
+    /* Blur hilang saat di-hover, untuk efek visual yang menarik */
+}
+
+.description img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    display: block;
+}
+
+.description figure {
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.description figure img {
+    margin-bottom: 0;
+}
+
+.description p {
+    margin-bottom: 15px;
+    clear: both;
+}
+
+/* Styling untuk membatasi judul menjadi dua baris dengan ellipsis */
+.post-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2em;
+    max-height: 2.4em;
+    font-size: 14px;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0px !important;
+}
+
+/* ======= Responsive Layout for Mobile Devices ======= */
+@media (max-width: 768px) {
+    /* Remove container constraints */
+    body,
+    html {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+
+    #detail {
+        padding-top: 60px !important;
+        width: 100vw !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    #main-container {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100vw !important;
+    }
+
+    .post-section {
+        width: 100% !important;
+        max-width: 100vw !important;
+        padding: 0 10px !important;
+        margin: 0 !important;
+    }
+
+    .related-news-section {
+        width: 100% !important;
+        max-width: 100vw !important;
+        margin-top: 20px !important;
+        padding: 0 10px !important;
+    }
+
+    .related-news .post-title {
+        font-size: 14px;
+        line-height: 1.5em;
+        -webkit-line-clamp: 2;
+        max-height: 3em;
+        padding-bottom: 2px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+
+    /* Adjust post content for mobile - WIDER */
+    .post-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 25px !important;
+        padding: 0 !important;
+        border-radius: 10px !important;
+        overflow: hidden !important;
+    }
+
+    /* Padding untuk konten di dalam post-content */
+    .post-content > div {
+        padding: 15px !important;
+    }
+
+    /* Image header tetap full width tanpa padding */
+    .post-content > img {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 200px !important;
+        max-height: 300px !important;
+        object-fit: cover !important;
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border-radius: 10px 10px 0 0 !important;
+    }
+
+    /* Adjust the related news images for mobile */
+    .related-news img {
+        width: 90px !important;
+        height: 65px !important;
+        min-width: 90px !important;
+    }
+
+    .related-news {
+        margin-left: 0 !important;
+        padding: 15px !important;
+        width: 100% !important;
+    }
+
+    /* Adjust the text size and layout for mobile */
+    .post-title {
+        font-size: 15px !important;
+        line-height: 1.5em !important;
+    }
+
+    .description {
+        width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Default paragraph styling */
+    .description > p {
+        margin-top: 0px !important;
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* Make description container a grid for images */
+    .description {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1px !important;
+    }
+
+    /* MODERN CAROUSEL SLIDER untuk gambar description di mobile */
+
+    /* Wrapper untuk carousel */
+    .description {
+        position: relative !important;
+    }
+
+    /* Container untuk semua gambar - akan dibuat jadi carousel via JS */
+    .description-image-carousel {
+        position: relative !important;
+        width: 100% !important;
+        background: #000000 !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Carousel slides wrapper */
+    .description-carousel-slides {
+        display: flex !important;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        width: 100% !important;
+    }
+
+    /* Individual slide */
+    .description-carousel-slide {
+        min-width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* Gambar dalam carousel - MEMENUHI CONTAINER & CLICKABLE */
+    .description-carousel-slide img {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        margin-bottom: 0 !important;
+        cursor: pointer !important;
+        transition: opacity 0.3s !important;
+    }
+
+    .description-carousel-slide img:hover {
+        opacity: 0.9 !important;
+    }
+
+    /* Navigation Arrows - Kiri & Kanan */
+    .description-carousel-arrow {
+        position: absolute !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        width: 40px !important;
+        height: 40px !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+        border: none !important;
+        border-radius: 50% !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 20px !important;
+        color: #333 !important;
+        z-index: 10 !important;
+        transition: all 0.3s !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .description-carousel-arrow:active {
+        transform: translateY(-50%) scale(0.95) !important;
+    }
+
+    .description-carousel-arrow.prev {
+        left: 10px !important;
+    }
+
+    .description-carousel-arrow.next {
+        right: 10px !important;
+    }
+
+    .description-carousel-arrow:hover {
+        background: rgba(255, 255, 255, 1) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* Carousel indicators - PUTIH & RAPAT */
+    .description-carousel-indicators {
+        position: absolute !important;
+        bottom: 15px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        display: flex !important;
+        justify-content: center !important;
+        gap: 5px !important;
+        z-index: 10 !important;
+    }
+
+    .description-carousel-indicator {
+        width: 8px !important;
+        height: 8px !important;
+        border-radius: 50% !important;
+        background: rgba(255, 255, 255, 0.5) !important;
+        cursor: pointer !important;
+        transition: all 0.3s !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+
+    .description-carousel-indicator.active {
+        background: #ffffff !important;
+        width: 20px !important;
+        border-radius: 4px !important;
+        border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    }
+
+    /* Counter text */
+    .description-carousel-counter {
+        position: absolute !important;
+        top: 15px !important;
+        right: 15px !important;
+        background: rgba(0, 0, 0, 0.6) !important;
+        color: white !important;
+        padding: 5px 12px !important;
+        border-radius: 20px !important;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        z-index: 10 !important;
+    }
+
+    /* Hide default description images - akan dikonversi ke carousel */
+    .description img:not(.description-carousel-slide img) {
+        display: none !important;
+    }
+
+    .description figure {
+        display: none !important;
+    }
+
+    /* Paragraf yang hanya berisi teks */
+    .description p:not(:has(img)):not(:has(figure)) {
+        display: block !important;
+        width: 100% !important;
+        line-height: 1.6 !important;
+        font-size: 15px !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* Remove unnecessary padding and margins */
+    .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* Breadcrumb text smaller on mobile */
+    .post-content > p:first-child {
+        font-size: 13px !important;
+    }
+
+    /* Title responsive */
+    .post-content h3 {
+        font-size: 1.3rem !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Image Lightbox Modal */
+    .image-lightbox {
+        display: none !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: rgba(0, 0, 0, 0.95) !important;
+        z-index: 9999 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 20px !important;
+    }
+
+    .image-lightbox.active {
+        display: flex !important;
+    }
+
+    .image-lightbox img {
+        max-width: 100% !important;
+        max-height: 100% !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
+        border-radius: 8px !important;
+    }
+
+    .image-lightbox-close {
+        position: absolute !important;
+        top: 20px !important;
+        right: 20px !important;
+        width: 40px !important;
+        height: 40px !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+        border: none !important;
+        border-radius: 50% !important;
+        font-size: 24px !important;
+        color: #333 !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        transition: all 0.3s !important;
+    }
+
+    .image-lightbox-close:hover {
+        background: rgba(255, 255, 255, 1) !important;
+        transform: scale(1.1) !important;
+    }
+}

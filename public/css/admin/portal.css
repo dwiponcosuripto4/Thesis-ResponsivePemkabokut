@@ -1,0 +1,103 @@
+/* Portal Icon Preview Styles for Admin Pages */
+
+/* Table Icon Section - untuk preview di tabel admin */
+.table-icon-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.table-icon-section .card {
+    background-color: #073f97;
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.table-icon-section .card:hover {
+    transform: scale(1.05);
+}
+
+.table-icon-section .card.bg-opacity-60 {
+    background-color: #073f97 !important;
+    opacity: 1;
+}
+
+.table-icon-section .card-body {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-icon-section .card img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+/* Dropdown Section Styles */
+.dropdown-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.dropdown-section h5 {
+    color: #073f97;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.dropdown-entry {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #dee2e6;
+}
+
+.dropdown-entry:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-entry .form-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.dropdown-entry .btn-danger {
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .table-icon-section .card {
+        width: 60px;
+        height: 60px;
+    }
+
+    .table-icon-section .card img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .dropdown-section {
+        padding: 15px;
+    }
+
+    .dropdown-entry {
+        padding: 15px;
+    }
+}

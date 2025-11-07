@@ -1,0 +1,19 @@
+/* Mobile: tombol full width dan tampilkan teks */
+@media (max-width: 767px) {
+    #sortForm {
+        width: 100%;
+    }
+    #sortForm button {
+        width: 100%;
+    }
+    #sortForm .sort-text {
+        display: inline;
+    }
+}
+
+/* Desktop: tombol auto width dan tampilkan teks */
+@media (min-width: 768px) {
+    #sortForm .sort-text {
+        display: inline;
+    }
+}
