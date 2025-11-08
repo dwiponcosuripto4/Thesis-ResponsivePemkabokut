@@ -126,8 +126,6 @@
     </section>
 
     <link rel="stylesheet" href="{{ asset('css/post/show.css') }}">
-    {{-- CAROUSEL SCRIPT DISABLED --}}
-    {{-- <script src="{{ asset('js/post-carousel.js') }}"></script> --}}
 
     @push('styles')
         <style>
