@@ -23,13 +23,27 @@
 
     /* Ensure proper spacing for images in description on desktop */
     .description img {
-        margin-bottom: 25px !important;
-        margin-top: 20px !important;
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+        row-gap: 0.5em !important;
+        column-gap: 0.5em !important;
     }
 
     .description figure {
-        margin-bottom: 25px !important;
-        margin-top: 20px !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        margin-bottom: 0.5em !important;
+        margin-top: 0 !important;
+        row-gap: 0em !important;
+        column-gap: 0.5em !important;
+    }
+
+    .description figure a {
+        width: calc(100% - 0em) !important;
+    }
+
+    .description figure img {
+        width: 100% !important;
     }
 }
 
@@ -45,17 +59,6 @@
         width: 100% !important;
         max-width: 100% !important;
         padding: 0 15px !important;
-    }
-
-    /* Ensure proper spacing for images in description on tablet */
-    .description img {
-        margin-bottom: 25px !important;
-        margin-top: 20px !important;
-    }
-
-    .description figure {
-        margin-bottom: 25px !important;
-        margin-top: 20px !important;
     }
 }
 
@@ -87,18 +90,6 @@
 .description img {
     max-width: 100%;
     height: auto;
-    margin-bottom: 20px;
-    margin-top: 15px;
-    display: block;
-}
-
-.description figure {
-    margin-bottom: 20px;
-    margin-top: 15px;
-}
-
-.description figure img {
-    margin-bottom: 0;
 }
 
 .description p {
@@ -243,13 +234,13 @@
     }
 
     /* MODERN CAROUSEL SLIDER untuk gambar description di mobile */
+    /* CAROUSEL CODE DISABLED - COMMENTED OUT */
 
-    /* Wrapper untuk carousel */
+    /*
     .description {
         position: relative !important;
     }
 
-    /* Container untuk semua gambar - akan dibuat jadi carousel via JS */
     .description-image-carousel {
         position: relative !important;
         width: 100% !important;
@@ -257,14 +248,12 @@
         margin-bottom: 20px !important;
     }
 
-    /* Carousel slides wrapper */
     .description-carousel-slides {
         display: flex !important;
         transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
         width: 100% !important;
     }
 
-    /* Individual slide */
     .description-carousel-slide {
         min-width: 100% !important;
         display: flex !important;
@@ -272,7 +261,6 @@
         justify-content: center !important;
     }
 
-    /* Gambar dalam carousel - MEMENUHI CONTAINER & CLICKABLE */
     .description-carousel-slide img {
         width: 100% !important;
         height: 100% !important;
@@ -287,7 +275,6 @@
         opacity: 0.9 !important;
     }
 
-    /* Navigation Arrows - Kiri & Kanan */
     .description-carousel-arrow {
         position: absolute !important;
         top: 50% !important;
@@ -325,7 +312,6 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
     }
 
-    /* Carousel indicators - PUTIH & RAPAT */
     .description-carousel-indicators {
         position: absolute !important;
         bottom: 15px !important;
@@ -354,7 +340,6 @@
         border: 1px solid rgba(255, 255, 255, 0.8) !important;
     }
 
-    /* Counter text */
     .description-carousel-counter {
         position: absolute !important;
         top: 15px !important;
@@ -368,13 +353,37 @@
         z-index: 10 !important;
     }
 
-    /* Hide default description images - akan dikonversi ke carousel */
     .description img:not(.description-carousel-slide img) {
         display: none !important;
     }
 
     .description figure {
         display: none !important;
+    }
+    */
+
+    .description img {
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+        row-gap: 0.5em !important;
+        column-gap: 0.5em !important;
+    }
+
+    .description figure {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        margin-bottom: 0.5em !important;
+        margin-top: 0 !important;
+        row-gap: 0em !important;
+        column-gap: 0.5em !important;
+    }
+
+    .description figure a {
+        width: calc(100% - 0em) !important;
+    }
+
+    .description figure img {
+        width: 100% !important;
     }
 
     /* Paragraf yang hanya berisi teks */
@@ -383,7 +392,6 @@
         width: 100% !important;
         line-height: 1.6 !important;
         font-size: 15px !important;
-        margin-bottom: 15px !important;
     }
 
     /* Remove unnecessary padding and margins */
