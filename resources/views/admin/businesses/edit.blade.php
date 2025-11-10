@@ -27,20 +27,31 @@
             <div class="col-lg-4 mb-4">
                 <div class="card shadow-sm mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Foto UMKM</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Foto UMKM Saat Ini</h6>
                     </div>
                     <div class="card-body">
-                        @if ($business->foto)
-                            <img src="{{ asset('storage/' . $business->foto) }}" class="d-block w-100 rounded"
-                                alt="{{ $business->nama }}" style="height: 300px; object-fit: cover;">
-                        @else
-                            <div class="text-center py-5">
-                                <div class="bg-secondary text-white rounded d-flex align-items-center justify-content-center mx-auto"
-                                    style="width: 100%; height: 300px; font-size: 2rem; font-weight: bold;">
-                                    {{ strtoupper(substr($business->nama, 0, 2)) }}
+                        <div id="currentPhotoWrapper">
+                            @if ($business->foto)
+                                <img src="{{ asset('storage/' . $business->foto) }}" class="d-block w-100 rounded"
+                                    alt="{{ $business->nama }}" style="height: 300px; object-fit: cover;">
+                            @else
+                                <div class="text-center py-5">
+                                    <div class="bg-secondary text-white rounded d-flex align-items-center justify-content-center mx-auto"
+                                        style="width: 100%; height: 300px; font-size: 2rem; font-weight: bold;">
+                                        {{ strtoupper(substr($business->nama, 0, 2)) }}
+                                    </div>
                                 </div>
-                            </div>
-                        @endif
+                            @endif
+                        </div>
+                        <div id="newPhotoPreview" class="mt-3" style="display: none;">
+                            <hr>
+                            <h6 class="text-success mb-2"><i class="fas fa-image me-1"></i>Preview Foto Baru:</h6>
+                            <img id="newPhotoImg" src="" class="d-block w-100 rounded" alt="Preview foto baru"
+                                style="height: 300px; object-fit: cover;">
+                            <button type="button" class="btn btn-sm btn-danger mt-2" onclick="cancelPhotoUpload()">
+                                <i class="fas fa-times me-1"></i>Batalkan
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="card shadow-sm">
@@ -152,7 +163,8 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="nomor_telepon" class="form-label">Nomor Telepon *</label>
-                                    <input type="tel" class="form-control @error('nomor_telepon') is-invalid @enderror"
+                                    <input type="tel"
+                                        class="form-control @error('nomor_telepon') is-invalid @enderror"
                                         id="nomor_telepon" name="nomor_telepon"
                                         value="{{ old('nomor_telepon', $business->nomor_telepon) }}" required>
                                     @error('nomor_telepon')
@@ -189,13 +201,18 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="foto" class="form-label">Upload Foto Baru</label>
+                                <label for="foto" class="form-label"><i class="fas fa-camera me-1"></i>Ganti Foto
+                                    UMKM</label>
                                 <input type="file" class="form-control @error('foto') is-invalid @enderror"
-                                    id="foto" name="foto" accept="image/*">
+                                    id="foto" name="foto" accept="image/*" onchange="previewNewPhoto(event)">
                                 @error('foto')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
-                                <small class="form-text text-muted">Opsional - Pilih satu foto untuk diupload</small>
+                                <small class="form-text text-muted">
+                                    <i class="fas fa-info-circle me-1"></i>Opsional - Upload foto baru untuk mengganti foto
+                                    yang ada.
+                                    Format: JPG, PNG, GIF (Max 2MB)
+                                </small>
                             </div>
 
                             <div class="mb-3">

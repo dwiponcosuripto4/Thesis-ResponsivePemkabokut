@@ -2,9 +2,10 @@
 
 namespace App\Providers;
 
-use App\Models\Category;
 use App\Models\Post;
+use App\Models\Category;
 use App\Observers\PostObserver;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use App\Http\Controllers\LayoutController;
 
@@ -26,5 +27,9 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('layout', LayoutController::class . '@compose');
         // Daftarkan observer Post
         Post::observe(PostObserver::class);
+
+        // if (config('app.env') === 'local') {
+        //     URL::forceScheme('https');
+        // }
     }
 }

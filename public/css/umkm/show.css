@@ -87,3 +87,47 @@ body {
     background: linear-gradient(90deg, #8f94fb 0%, #4e54c8 100%);
     color: #fff;
 }
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    cursor: default;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.foto-umkm-img {
+    transition: opacity 0.2s;
+}
+
+.foto-umkm-img:hover {
+    opacity: 0.9;
+}

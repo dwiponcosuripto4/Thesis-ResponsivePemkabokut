@@ -57,8 +57,9 @@
                     </div>
                     <div class="card-body">
                         @if ($business->foto)
-                            <img src="{{ asset('storage/' . $business->foto) }}" class="d-block w-100 rounded"
-                                alt="{{ $business->nama }}" style="height: 300px; object-fit: cover;">
+                            <img src="{{ asset('storage/' . $business->foto) }}"
+                                class="d-block w-100 rounded lightbox-trigger" alt="{{ $business->nama }}"
+                                style="height: 300px; object-fit: cover; cursor: pointer;">
                         @else
                             <div class="text-center py-5">
                                 <div class="bg-secondary text-white rounded d-flex align-items-center justify-content-center mx-auto"
@@ -300,4 +301,6 @@
             }
         }
     </script>
+
+    <link rel="stylesheet" href="{{ asset('css/admin/umkm/show.css') }}">
 @endsection

@@ -73,10 +73,10 @@
                     <div class="card-header py-3">
                         <div class="d-flex justify-content-between align-items-center flex-wrap">
                             <h6 class="m-0 font-weight-bold text-primary">UMKM List</h6>
-                            <div class="d-flex gap-2 align-items-center flex-wrap">
+                            <div class="d-flex gap-2 align-items-center flex-wrap filter-controls">
                                 <form method="GET" action="{{ route('admin.businesses.index') }}"
                                     class="d-flex gap-2 align-items-center mb-0" id="searchForm">
-                                    <div class="input-group" style="width: 250px;">
+                                    <div class="input-group search-input-group">
                                         <input type="text" class="form-control form-control-sm" name="search"
                                             placeholder="Search UMKM businesses..." value="{{ request('search') }}"
                                             id="searchInput">
@@ -91,8 +91,7 @@
 
                                 <form method="GET" action="{{ route('admin.businesses.index') }}"
                                     class="d-flex gap-2 align-items-center mb-0" id="filterForm">
-                                    <select class="form-select form-select-sm" id="status" name="status"
-                                        style="width: 150px;">
+                                    <select class="form-select form-select-sm status-select" id="status" name="status">
                                         <option value="">All Status</option>
                                         <option value="1" {{ request('status') == '1' ? 'selected' : '' }}>Approved
                                         </option>
@@ -110,7 +109,8 @@
                                     </a>
                                 @endif
 
-                                <button type="button" class="btn btn-success btn-sm" onclick="downloadBusinessReport()">
+                                <button type="button" class="btn btn-success btn-sm report-btn"
+                                    onclick="downloadBusinessReport()">
                                     <i class="fas fa-file-pdf me-1"></i>Laporan
                                 </button>
                             </div>
@@ -153,8 +153,6 @@
                                                 </td>
                                                 <td>
                                                     <div class="font-weight-bold">{{ $business->nama }}</div>
-                                                    <small
-                                                        class="text-muted">{{ $business->user->name ?? 'No User' }}</small>
                                                 </td>
                                                 <td>{{ $business->owner }}</td>
                                                 <td>{{ $business->email }}</td>
@@ -257,6 +255,8 @@
             </div>
         </div>
     </div>
+
+    <link rel="stylesheet" href="{{ asset('css/admin/umkm/index.css') }}">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('js/admin/umkm/index.js') }}"></script>

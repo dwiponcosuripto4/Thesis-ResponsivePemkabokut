@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("searchUser");
+    const filterUnit = document.getElementById("filterUnit");
     const filterStatus = document.getElementById("filterStatus");
     const table = document.getElementById("userTable");
 
     function filterTable() {
         const searchTerm = searchInput.value.toLowerCase();
+        const unitFilter = filterUnit.value;
         const statusFilter = filterStatus.value;
         const tbody = table.querySelector("tbody");
 
@@ -15,16 +17,18 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let i = 0; i < rows.length; i++) {
             const row = rows[i];
 
-            if (row.cells.length < 8) continue;
+            if (row.cells.length < 9) continue;
 
             const nameCell = row.cells[2];
             const emailCell = row.cells[3];
-            const statusCell = row.cells[5];
+            const unitCell = row.cells[4];
+            const statusCell = row.cells[6];
 
-            if (!nameCell || !emailCell || !statusCell) continue;
+            if (!nameCell || !emailCell || !unitCell || !statusCell) continue;
 
             const name = nameCell.textContent.toLowerCase();
             const email = emailCell.textContent.toLowerCase();
+            const unit = unitCell.textContent.trim();
             const statusBadge = statusCell.querySelector(".badge");
 
             if (!statusBadge) continue;
@@ -42,15 +46,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const matchesSearch =
                 name.includes(searchTerm) || email.includes(searchTerm);
+            const matchesUnit =
+                unitFilter === "" || unit === unitFilter;
             const matchesStatus =
                 statusFilter === "" || status === statusFilter;
 
-            row.style.display = matchesSearch && matchesStatus ? "" : "none";
+            row.style.display = matchesSearch && matchesUnit && matchesStatus ? "" : "none";
         }
     }
 
-    if (searchInput && filterStatus) {
+    if (searchInput && filterUnit && filterStatus) {
         searchInput.addEventListener("input", filterTable);
+        filterUnit.addEventListener("change", filterTable);
         filterStatus.addEventListener("change", filterTable);
     }
 });

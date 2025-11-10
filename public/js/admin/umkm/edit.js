@@ -1,3 +1,47 @@
+// Preview new photo before upload
+function previewNewPhoto(event) {
+    const file = event.target.files[0];
+    if (file) {
+        // Validate file size (max 2MB)
+        if (file.size > 2048 * 1024) {
+            alert("Ukuran file terlalu besar! Maksimal 2MB");
+            event.target.value = "";
+            return;
+        }
+
+        // Validate file type
+        const validTypes = [
+            "image/jpeg",
+            "image/jpg",
+            "image/png",
+            "image/gif",
+        ];
+        if (!validTypes.includes(file.type)) {
+            alert("Format file tidak valid! Gunakan JPG, PNG, atau GIF");
+            event.target.value = "";
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById("newPhotoImg").src = e.target.result;
+            document.getElementById("newPhotoPreview").style.display = "block";
+
+            // Scroll to preview
+            document.getElementById("newPhotoPreview").scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+            });
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+// Cancel photo upload
+function cancelPhotoUpload() {
+    document.getElementById("foto").value = "";
+    document.getElementById("newPhotoPreview").style.display = "none";
+}
 function showPreview(url) {
     const previewContainer = document.getElementById("previewContainer");
     const iframe = document.getElementById("previewIframe");

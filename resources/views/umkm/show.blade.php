@@ -27,9 +27,8 @@
                         <div class="row g-3">
                             @if ($business->foto)
                                 <div class="col-md-4 col-sm-6">
-                                    <img src="{{ asset('storage/' . $business->foto) }}" class="foto-umkm-img"
-                                        alt="Foto UMKM"
-                                        onclick="showImageModal('{{ asset('storage/' . $business->foto) }}', 'Foto UMKM')">
+                                    <img src="{{ asset('storage/' . $business->foto) }}"
+                                        class="foto-umkm-img lightbox-trigger" alt="Foto UMKM" style="cursor: pointer;">
                                 </div>
                             @else
                                 <div class="col-12">
@@ -113,48 +112,30 @@
     </div>
     </div>
 
-    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="imageModalLabel">Foto UMKM</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <img id="modalImage" src="" class="img-fluid rounded shadow" alt="Foto UMKM">
-                </div>
-            </div>
-        </div>
-    </div>
-
     <link rel="stylesheet" href="{{ asset('css/umkm/show.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="{{ asset('js/umkm/show.js') }}"></script>
 
-    <script>
-        function showImageModal(imageSrc, imageTitle) {
-            document.getElementById('modalImage').src = imageSrc;
-            document.getElementById('imageModalLabel').textContent = imageTitle;
-            var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-            imageModal.show();
-        }
-
-        function openOriginalMap() {
-            var url = @json($business->input_url ?? null);
-            if (url) {
-                window.open(url, '_blank');
-            } else if (@json($business->latitude) && @json($business->longitude)) {
-                var lat = @json($business->latitude);
-                var lng = @json($business->longitude);
-                window.open(`https://www.google.com/maps?q=${lat},${lng}`, '_blank');
-            } else if (@json($business->alamat)) {
-                var alamat = @json($business->alamat);
-                window.open(`https://www.google.com/maps?q=${encodeURIComponent(alamat)}`, '_blank');
-            } else {
-                var nama = @json($business->nama);
-                window.open(`https://www.google.com/maps?q=${encodeURIComponent(nama)}`, '_blank');
+    @push('scripts')
+        <script>
+            function openOriginalMap() {
+                var url = @json($business->input_url ?? null);
+                if (url) {
+                    window.open(url, '_blank');
+                } else if (@json($business->latitude) && @json($business->longitude)) {
+                    var lat = @json($business->latitude);
+                    var lng = @json($business->longitude);
+                    window.open(`https://www.google.com/maps?q=${lat},${lng}`, '_blank');
+                } else if (@json($business->alamat)) {
+                    var alamat = @json($business->alamat);
+                    window.open(`https://www.google.com/maps?q=${encodeURIComponent(alamat)}`, '_blank');
+                } else {
+                    var nama = @json($business->nama);
+                    window.open(`https://www.google.com/maps?q=${encodeURIComponent(nama)}`, '_blank');
+                }
             }
-        }
-    </script>
+        </script>
+    @endpush
 @endsection

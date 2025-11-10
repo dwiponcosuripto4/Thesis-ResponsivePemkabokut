@@ -103,6 +103,12 @@
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
+                    <select class="form-select form-select-sm" style="width: 150px;" id="filterUnit">
+                        <option value="">Semua Unit</option>
+                        @foreach ($users->pluck('unit')->unique()->filter() as $unit)
+                            <option value="{{ $unit }}">{{ $unit }}</option>
+                        @endforeach
+                    </select>
                     <select class="form-select form-select-sm" style="width: 150px;" id="filterStatus">
                         <option value="">Semua Status</option>
                         <option value="active">Terverifikasi</option>
